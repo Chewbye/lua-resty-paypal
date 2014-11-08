@@ -31,7 +31,7 @@ server {
 
 
   location /Shop/payment {
-    resolver 8.8.8.8;  # use Googles open DNS server for an example
+    resolver 8.8.8.8;  # use Google's open DNS server for an example
 
     content_by_lua '
       local paypal = require("resty.paypal"):new("dev", "paypal_user", "paypal_pwd", "api_signature")
@@ -57,7 +57,7 @@ server {
 
 
   location /Shop/PaymentCallback {
-    resolver 8.8.8.8;  # use Googles open DNS server for an example
+    resolver 8.8.8.8;  # use Google''s open DNS server for an example
 
     content_by_lua '
       local paypal = require("resty.paypal"):new("dev", "paypal_user", "paypal_pwd", "api_signature")
@@ -96,6 +96,7 @@ server {
 `syntax: paypal = paypal:new(environment, paypal_user, paypal_pwd, api_signature)`
 
 Creates the paypal object. In case of failures, returns `nil` and a string describing the error.
+
 environment = "prod" or "dev"
 
 ## request
@@ -103,8 +104,13 @@ environment = "prod" or "dev"
 `syntax: response, err = paypal:request(method, params)`
 
 Request Paypal with an https connection. In case of failures, returns `nil` and a string describing the error.
+
+
+
 For basic usage:
 method = "SetExpressCheckout" or method = "GetExpressCheckoutDetails" or method = "DoExpressCheckoutPayment"
+
+
 params: table containing parameters needed by Paypal for the requested method.
 
 # Author

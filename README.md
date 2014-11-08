@@ -96,6 +96,7 @@ server {
 `syntax: paypal = paypal:new(environment, paypal_user, paypal_pwd, api_signature)`
 
 Creates the paypal object. In case of failures, returns `nil` and a string describing the error.
+
 environment = "prod" or "dev"
 
 ## request
@@ -103,8 +104,12 @@ environment = "prod" or "dev"
 `syntax: response, err = paypal:request(method, params)`
 
 Request Paypal with an https connection. In case of failures, returns `nil` and a string describing the error.
+
+
 For basic usage:
+
 method = "SetExpressCheckout" or method = "GetExpressCheckoutDetails" or method = "DoExpressCheckoutPayment"
+
 params: table containing parameters needed by Paypal for the requested method.
 
 # Author
