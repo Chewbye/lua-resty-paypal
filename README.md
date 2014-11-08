@@ -31,7 +31,7 @@ server {
 
 
   location /Shop/payment {
-    resolver 8.8.8.8;  # use Googles open DNS server for an example
+    resolver 8.8.8.8;  # use Google's open DNS server for an example
 
     content_by_lua '
       local paypal = require("resty.paypal"):new("dev", "paypal_user", "paypal_pwd", "api_signature")
@@ -57,7 +57,7 @@ server {
 
 
   location /Shop/PaymentCallback {
-    resolver 8.8.8.8;  # use Googles open DNS server for an example
+    resolver 8.8.8.8;  # use Google''s open DNS server for an example
 
     content_by_lua '
       local paypal = require("resty.paypal"):new("dev", "paypal_user", "paypal_pwd", "api_signature")
