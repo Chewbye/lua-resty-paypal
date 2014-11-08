@@ -17,7 +17,7 @@ Ready for testing. Probably production ready in most cases, though not yet prove
 
 # API
 
-* [new](#name)
+* [new](#new)
 * [request](#request)
 
 

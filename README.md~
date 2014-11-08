@@ -106,10 +106,9 @@ environment = "prod" or "dev"
 Request Paypal with an https connection. In case of failures, returns `nil` and a string describing the error.
 
 
-
 For basic usage:
-method = "SetExpressCheckout" or method = "GetExpressCheckoutDetails" or method = "DoExpressCheckoutPayment"
 
+method = "SetExpressCheckout" or method = "GetExpressCheckoutDetails" or method = "DoExpressCheckoutPayment"
 
 params: table containing parameters needed by Paypal for the requested method.
 
