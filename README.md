@@ -55,6 +55,7 @@ server {
     ';
   }
 
+
   location /Shop/PaymentCallback {
     resolver 8.8.8.8;  # use Google's open DNS server for an example
 
@@ -66,18 +67,18 @@ server {
 
       local totalPrice = 150
       local params = { 
-      CANCELURL = config.server_name .. "/Shop/cancelURL",
-      PAYMENTREQUEST_0_AMT = response["PAYMENTREQUEST_0_AMT"],
-      PAYMENTREQUEST_0_CURRENCYCODE = "EUR",
-      PAYMENTREQUEST_0_ITEMAMT = totalPrice,
-      L_PAYMENTREQUEST_0_NAME00 = "Item name 0",
-      L_PAYMENTREQUEST_0_DESC00 = "Description 0",
-      L_PAYMENTREQUEST_0_AMT00 = totalPrice,
-      L_PAYMENTREQUEST_0_QTY00 = 1,
-      TOKEN = ngx.var.token,
-      PAYERID = ngx.var.PayerID,
-      PAYMENTACTION = "Sale",
-      NOSHIPPING = 1
+	      CANCELURL = config.server_name .. "/Shop/cancelURL",
+	      PAYMENTREQUEST_0_AMT = response["PAYMENTREQUEST_0_AMT"],
+	      PAYMENTREQUEST_0_CURRENCYCODE = "EUR",
+	      PAYMENTREQUEST_0_ITEMAMT = totalPrice,
+	      L_PAYMENTREQUEST_0_NAME00 = "Item name 0",
+	      L_PAYMENTREQUEST_0_DESC00 = "Description 0",
+	      L_PAYMENTREQUEST_0_AMT00 = totalPrice,
+	      L_PAYMENTREQUEST_0_QTY00 = 1,
+	      TOKEN = ngx.var.token,
+	      PAYERID = ngx.var.PayerID,
+	      PAYMENTACTION = "Sale",
+	      NOSHIPPING = 1
       }
 
       -- Order payment
