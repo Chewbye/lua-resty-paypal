@@ -38,10 +38,10 @@ server {
 
       local totalPrice = 150
       local params = { 
-	      RETURNURL = config.server_name .. "/Shop/PaymentCallback",
-	      CANCELURL = config.server_name .. "/Shop/cancelURL",
+	      RETURNURL = config.server_name .. '/Shop/PaymentCallback',
+	      CANCELURL = config.server_name .. '/Shop/cancelURL',
 	      PAYMENTREQUEST_0_AMT = totalPrice,
-	      PAYMENTREQUEST_0_CURRENCYCODE = "EUR",
+	      PAYMENTREQUEST_0_CURRENCYCODE = 'EUR',
 	      PAYMENTREQUEST_0_ITEMAMT = itemPrice0,
 	      L_PAYMENTREQUEST_0_NAME00 = "Item name 0",
 	      L_PAYMENTREQUEST_0_DESC00 = "Description 0",
@@ -51,7 +51,7 @@ server {
       }
 
       --Get payment link
-      local response, err = paypal:request("SetExpressCheckout", params)
+      local response, err = paypal:request('SetExpressCheckout', params)
     ';
   }
 
@@ -62,13 +62,13 @@ server {
       local paypal = require("resty.paypal"):new("dev", "paypal_user", "paypal_pwd", "api_signature")
 
       --Get Paypal context
-      local response, err = paypal:request("GetExpressCheckoutDetails", {TOKEN = ngx.var.token})
+      local response, err = paypal:request('GetExpressCheckoutDetails', {TOKEN = ngx.var.token})
 
       local totalPrice = 150
       local params = { 
-      CANCELURL = config.server_name .. "/Shop/cancelURL",
-      PAYMENTREQUEST_0_AMT = response["PAYMENTREQUEST_0_AMT"],
-      PAYMENTREQUEST_0_CURRENCYCODE = "EUR",
+      CANCELURL = config.server_name .. '/Shop/cancelURL',
+      PAYMENTREQUEST_0_AMT = response['PAYMENTREQUEST_0_AMT'],
+      PAYMENTREQUEST_0_CURRENCYCODE = 'EUR',
       PAYMENTREQUEST_0_ITEMAMT = totalPrice,
       L_PAYMENTREQUEST_0_NAME00 = "Item name 0",
       L_PAYMENTREQUEST_0_DESC00 = "Description 0",
@@ -81,7 +81,7 @@ server {
       }
 
       -- Order payment
-      local response, err = paypal:request("DoExpressCheckoutPayment", params)
+      local response, err = paypal:request('DoExpressCheckoutPayment', params)
     ';
   }
 }
